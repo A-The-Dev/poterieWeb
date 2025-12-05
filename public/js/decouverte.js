@@ -80,12 +80,8 @@ window.addToCart = function(articleId) {
         }
     })
     .then((data) => {
-        if (data.updated_cart) {
-            // Update cookie with the new cart if user is not logged in
-            setCookie('cart', JSON.stringify(data.updated_cart), 7);
-        } else {
-            console.log('Article ajouté sur le serveur');
-        }
+
+        console.log('Article ajouté au panier');
 
         document.getElementById("basketCount").innerHTML = data.basketCount;
 
