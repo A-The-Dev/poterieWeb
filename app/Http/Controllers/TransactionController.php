@@ -393,6 +393,7 @@ class TransactionController extends Controller
             return response()->json(['message' => 'Succès, Article ajouté au panier', 'ajoute' => true, 'basketCount' => sizeof($panier)])->withCookie($biscuit);
         }
      } catch(Exception $e){
+        Log::error("Erreur lors de l'ajout d'une transaction: " . $e->getMessage());
         return response()->json(['status' => 'error', 'message' => $e->getMessage()]);
      }
     }
