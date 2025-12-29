@@ -71,7 +71,7 @@ Route::controller(CommandeController::class)->group(function () {
 /* Routes liées aux transactions */
 Route::controller(TransactionController::class)->group(function () {
     Route::get('/deleteThisArticle/{id}', 'destroy')->name('removeFromPanier');
-    Route::post('/addArticleToPanier', 'store')->name('addArticleToPanier');
+    Route::post('/addArticleToPanier', [TransactionController::class,'store'])->name('addArticleToPanier');
     Route::get('/mesTransactions/{idUser}', [TransactionController::class, 'mesTransactions'])->name('mesTransactions');
     Route::get('/traiterTransactionForm/{idTransaction}', [TransactionController::class, 'edit'])->name('traiterTransactionForm');
     Route::post('/traiterTransaction', [TransactionController::class, 'update'])->name('traiterTransaction');
