@@ -76,14 +76,14 @@ window.addToCart = function(articleId) {
         if (response.ok) {
             return response.json();  // Return the parsed JSON if response is okay
         } else {
-            console.error("Erreur a l'ajout de l'article :");
+            console.error("Erreur a l'ajout de l'article :" . response.message);
             return response.json();
         }
     })
     .then((data) => {
 
 
-        console.log(data);
+        console.log(data.status);
 
         document.getElementById("basketCount").innerHTML = data.basketCount;
 
