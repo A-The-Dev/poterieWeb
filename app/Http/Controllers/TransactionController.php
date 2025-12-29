@@ -350,6 +350,7 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
+        try{
         #Créé une entrée transaction pour l'utilisateur connecté
         if (Auth::check()) {
             //Get le panier ou on le créé
@@ -391,6 +392,9 @@ class TransactionController extends Controller
             // return response('Article ajouté au panier (biscuit)')->cookie($biscuit);
             return response()->json(['message' => 'Succès, Article ajouté au panier', 'ajoute' => true, 'basketCount' => sizeof($panier)])->withCookie($biscuit);
         }
+     } catch(Exception $e){
+        return response()->json(['status' => 'error', 'message' => $e->getMessage()]);
+     }
     }
 
     /**
