@@ -24,8 +24,14 @@ class EasyPost extends Model
 
     public function __construct()
     {
-        $this->client = new EasyPostClient(env('EASYPOST_API_KEY')); // Utilisation d'un fichier .env pour stocker la clé
-        $this->secret = env('EASYPOST_WEBHOOK_SECRET');
+        $apiKey = env('EASYPOST_API_KEY');
+        if ($apiKey){
+            $this->client = new EasyPostClient($apiKey); // Utilisation d'un fichier .env pour stocker la clé
+            $this->secret = env('EASYPOST_WEBHOOK_SECRET');
+        } else {
+            throw new Exception('La clé API EasyPost est manquante. Veuillez vérifier le fichier .env.');
+        }
+
     }
 
     #===========================================#
