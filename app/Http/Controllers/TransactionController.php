@@ -35,7 +35,11 @@ class TransactionController extends Controller
 
     public function __construct()
     {
+        try{
         $this->easyPost = new EasyPost();
+    } catch(Exception $e){
+        Log::error("Erreur lors de l'initialisation d'EasyPost dans TransactionController: " . $e->getMessage());
+     }
     }
 
     #===========================================#
