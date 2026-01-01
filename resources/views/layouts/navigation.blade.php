@@ -89,11 +89,9 @@ window.addEventListener('scroll', () => {
 
             {{-- Bouton panier --}}
             <a class="ml-[15px] relative" href="{{ route('panier') }}">
-                @if ($basketCount > 0)
                     <p  id="basketCount"
-                        class="mx-auto bg-red-500 text-white text-sm text-center rounded w-fit absolute -right-2 -top-1 {{ $basketCount > 9 ? 'px-1' : 'px-1.5' }}">
+                        class="mx-auto bg-red-500 text-white text-sm text-center rounded w-fit absolute -right-2 -top-1 {{ $basketCount > 9 ? 'px-1' : 'px-1.5' }} {{ $basketCount == 0 ? 'hidden' : '' }}">
                         {{ $basketCount }}</p>
-                @endif
                 <svg width="34" height="34" viewBox="0 0 48 48" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path

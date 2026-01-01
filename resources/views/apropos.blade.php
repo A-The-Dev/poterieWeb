@@ -3,7 +3,7 @@
     <div class="bg-cover bg-center h-full w-full" style="background-image: url('/../covers/cover_picture.png');">
         <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-between items-center h-full">
 
-            <h1 class="titre1-light text-center mt-6">À propos de Artterre</h1>
+            <h1 class="titre1-light text-center mt-6">À propos d'Artterre</h1>
 
             <div class="w-3/5 m-auto textGrand-light backdrop-blur-lg text-center rounded-[16px]">
                 <section class="m-section">

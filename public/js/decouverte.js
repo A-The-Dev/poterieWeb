@@ -87,6 +87,7 @@ window.addToCart = function(articleId) {
         console.log("data message:",data.message);
 
         document.getElementById("basketCount").innerHTML = data.basketCount;
+        document.getElementById("basketCount").classList.toggle("hidden", data.basketCount == 0);
 
         console.log(data.basketCount);
     })
